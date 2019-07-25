@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# misc
+public/themes
+public/*.js*
+public/*.css*

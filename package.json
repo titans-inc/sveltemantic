@@ -18,8 +18,15 @@
     "node": ">= 8"
   },
   "scripts": {
-    "build": "rollup -c",
-    "autobuild": "rollup -c -w",
+    "build": "rollup -c --environment BUILD:all",
+    "build:public": "rollup -c --environment BUILD:public",
+    "build:sveltemantic": "rollup -c --environment BUILD:package",
+    "watch": "rollup -c -w --environment BUILD:all",
+    "watch:public": "rollup -c -w --environment BUILD:public",
+    "watch:sveltemantic": "rollup -c -w --environment BUILD:package",
+    "dev": "run-p serve:dev watch:public",
+    "serve": "sirv public --single",
+    "serve:dev": "sirv public --single --dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,7 +40,8 @@
   },
   "homepage": "https://github.com/titans-inc/sveltemantic#readme",
   "dependencies": {
-    "svelte": "^3.6.8"
+    "svelte": "^3.6.8",
+    "fomantic-ui-css": "^2.7.6"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
@@ -42,12 +50,16 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
-    "fomantic-ui-css": "^2.7.6",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.12.0",
     "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-copy": "^3.0.0",
+    "rollup-plugin-css-only": "^1.0.0",
+    "rollup-plugin-livereload": "^1.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-svelte": "^5.0.3"
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.1",
+    "sirv-cli": "^0.4.4"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "sveltemantic",
-  "version": "0.0.2-alpha",
+  "version": "0.0.1-alpha.2",
   "description": "Fomantic-UI components for Svelte 3",
   "main": "index.js",
   "module": "index.mjs",
@@ -40,8 +40,7 @@
   },
   "homepage": "https://github.com/titans-inc/sveltemantic#readme",
   "dependencies": {
-    "svelte": "^3.6.8",
-    "fomantic-ui-css": "^2.7.6"
+    "svelte": "^3.6.8"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
@@ -50,6 +49,8 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
+    "fomantic-ui-css": "^2.7.6",
+    "gh-pages": "^2.0.1",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.12.0",
     "rollup-plugin-commonjs": "^10.0.0",

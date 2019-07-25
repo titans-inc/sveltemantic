@@ -1,6 +1,6 @@
 {
   "name": "sveltemantic",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "Fomantic-UI components for Svelte 3",
   "main": "index.js",
   "module": "index.mjs",
@@ -18,10 +18,10 @@
     "node": ">= 8"
   },
   "scripts": {
-    "build": "rollup -c --environment BUILD:all",
+    "build": "rollup -c",
     "build:public": "rollup -c --environment BUILD:public",
     "build:sveltemantic": "rollup -c --environment BUILD:package",
-    "watch": "rollup -c -w --environment BUILD:all",
+    "watch": "rollup -c -w",
     "watch:public": "rollup -c -w --environment BUILD:public",
     "watch:sveltemantic": "rollup -c -w --environment BUILD:package",
     "dev": "run-p serve:dev watch:public",

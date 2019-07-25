@@ -10,11 +10,11 @@ import css from 'rollup-plugin-css-only'
 import pkg from './package.json'
 
 const production = !process.env.ROLLUP_WATCH
-const build = process.env.BUILD
+const build = process.env.BUILD ? process.env.BUILD : true
 
-let tasks = []
+const tasks = []
 
-if(build === 'all' || build === 'public') {
+if (build || build === 'public') {
     tasks.push(
         {
             input: 'src/index.js',
@@ -53,6 +53,10 @@ if(build === 'all' || build === 'public') {
             }
         }
     )
+}
+
+if (build || build === 'package') {
+    // TODO
 }
 
 export default tasks

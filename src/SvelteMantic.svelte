@@ -1,8 +1,6 @@
 <script>
-    import 'fomantic-ui-css/semantic.css'; 
-    import Button from './elements/Button.svelte'
+    import 'fomantic-ui-css/semantic.min.css'; 
+    import { Button, Icon, Flag, Text } from './elements';
 </script>
 
-<Button>
-    <i class="accessible icon"></i>
-</Button>
+<Text inverted>Hello</Text>

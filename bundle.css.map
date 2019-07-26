@@ -2,13 +2,13 @@
   "version": 3,
   "file": "bundle.css",
   "sources": [
-    "../src/elements/Flag.svelte",
-    "../src/elements/Icon.svelte"
+    "../src/elements/Icon.svelte",
+    "../src/elements/Flag.svelte"
   ],
   "sourcesContent": [
-    "<script>\n    export let code = '';\n    export let name = '';\n    export let alias = '';\n\n    function normalizedFlag() {\n        if (code && code.length === 2) {\n            return code;\n        } else if (name) {\n            return name.toLowerCase().replace('.', '');\n        } else if (alias) {\n            return alias.toLowerCase();\n        } else {\n            return 'error';\n        }\n    }\n</script>\n\n<style>\n    i.flag.error:not(.icon)::before {\n        content: '\\f0000';\n    }\n</style>\n\n<i class=\"{normalizedFlag()} flag\"></i>",
-    "<script>\n    export let name = ''\n</script>\n\n<style>\n    i.icon.error::before {\n        content: '\\f0000'\n    }\n</style>\n\n<i class=\"{name ? name.toLowerCase() : 'error'} icon\"></i>"
+    "<script>\n    export let name = ''\n</script>\n\n<style>\n    i.icon.error::before {\n        content: '\\f0000'\n    }\n</style>\n\n<i class=\"{name ? name.toLowerCase() : 'error'} icon\"></i>",
+    "<script>\n    export let code = '';\n    export let name = '';\n    export let alias = '';\n\n    function normalizedFlag() {\n        if (code && code.length === 2) {\n            return code;\n        } else if (name) {\n            return name.toLowerCase().replace('.', '');\n        } else if (alias) {\n            return alias.toLowerCase();\n        } else {\n            return 'error';\n        }\n    }\n</script>\n\n<style>\n    i.flag.error:not(.icon)::before {\n        content: '\\f0000';\n    }\n</style>\n\n<i class=\"{normalizedFlag()} flag\"></i>"
   ],
   "names": [],
-  "mappings": "AAmBI,CAAC,KAAK,qBAAM,KAAK,KAAK,CAAC,QAAQ,AAAC,CAAC,AAC7B,OAAO,CAAE,QAAQ,AACrB,CAAC;AChBD,CAAC,KAAK,oBAAM,QAAQ,AAAC,CAAC,AAClB,OAAO,CAAE,QAAQ;IACrB,CAAC"
+  "mappings": "AAKI,CAAC,KAAK,oBAAM,QAAQ,AAAC,CAAC,AAClB,OAAO,CAAE,QAAQ;IACrB,CAAC;ACYD,CAAC,KAAK,qBAAM,KAAK,KAAK,CAAC,QAAQ,AAAC,CAAC,AAC7B,OAAO,CAAE,QAAQ,AACrB,CAAC"
 }

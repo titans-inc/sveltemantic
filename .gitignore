@@ -65,8 +65,8 @@ public/themes
 public/*.js*
 public/*.css*
 
-behaviors
-collections
-elements
-modules
-views
+/behaviors
+/collections
+/elements
+/modules
+/views

@@ -12,7 +12,7 @@ import pkg from './package.json'
 
 const production = !process.env.ROLLUP_WATCH
 const build = process.env.BUILD ? process.env.BUILD : false
-
+const external = id => id.startsWith('svelte/')
 const tasks = []
 
 if (!build || build === 'public') {
@@ -26,7 +26,8 @@ if (!build || build === 'public') {
         },
         plugins: [
             replace({
-                __VERSION__: pkg.version
+                __VERSION__: pkg.version,
+                __PRODUCTION__: production
             }),
             svelte({
                 dev: !production,
@@ -86,6 +87,7 @@ if (!build || build === 'package') {
                         format: 'cjs'
                     }
                 ],
+                external,
                 plugins: [
                     svelte(),
                     resolve(),

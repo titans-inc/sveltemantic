@@ -9,7 +9,7 @@ import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import copy from 'rollup-plugin-copy'
 import css from 'rollup-plugin-css-only'
-import sveltedoc from './docs/index'
+import sveltedoc from 'rollup-plugin-sveltedoc'
 import pkg from './package.json'
 
 const production = !process.env.ROLLUP_WATCH
@@ -123,7 +123,7 @@ if (!build || build === 'docs') {
             .map(file => ({
                 input: file,
                 output: {
-                    file: `docs/${path.basename(path.dirname(file))}/${path.basename(file, '.svelte')}.js`,
+                    file: `public/docs/${path.basename(path.dirname(file))}/${path.basename(file, '.svelte')}.js`,
                     format: 'esm'
                 },
                 plugins: [

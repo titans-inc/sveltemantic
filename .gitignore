@@ -61,9 +61,8 @@ typings/
 .next
 
 # misc
-public/themes
-public/*.js*
-public/*.css*
+/public
+/docs
 
 /behaviors
 /collections

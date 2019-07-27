@@ -63,6 +63,8 @@ typings/
 # misc
 /public
 /docs
+/src/index.js
+/src/SvelteMantic.svelte
 
 /behaviors
 /collections

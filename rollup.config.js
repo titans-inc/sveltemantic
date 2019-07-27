@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 import ghPages from 'gh-pages'
 import replace from 'rollup-plugin-replace'
 import svelte from 'rollup-plugin-svelte'
@@ -8,6 +9,7 @@ import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import copy from 'rollup-plugin-copy'
 import css from 'rollup-plugin-css-only'
+import sveltedoc from './docs/index'
 import pkg from './package.json'
 
 const production = !process.env.ROLLUP_WATCH
@@ -101,6 +103,31 @@ if (!build || build === 'package') {
                             }, null, '  '))
                         }
                     }
+                ]
+            }))
+    )
+}
+
+if (!build || build === 'docs') {
+    const getFilePaths = (folderPath) => {
+        const entryPaths = fs.readdirSync(folderPath).map(entry => path.join(folderPath, entry))
+        const filePaths = entryPaths.filter(entryPath => fs.statSync(entryPath).isFile())
+        const dirPaths = entryPaths.filter(entryPath => !filePaths.includes(entryPath))
+        const dirFiles = dirPaths.reduce((prev, curr) => prev.concat(getFilePaths(curr)), [])
+        return [...filePaths, ...dirFiles]
+    }
+
+    tasks.push(
+        ...getFilePaths('src')
+            .filter(file => !file.endsWith('SvelteMantic.svelte') && file.endsWith('.svelte'))
+            .map(file => ({
+                input: file,
+                output: {
+                    file: `docs/${path.basename(path.dirname(file))}/${path.basename(file, '.svelte')}.js`,
+                    format: 'esm'
+                },
+                plugins: [
+                    sveltedoc()
                 ]
             }))
     )

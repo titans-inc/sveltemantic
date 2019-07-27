@@ -19,14 +19,17 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "build:doc": "rollup -c --environment BUILD:docs",
     "build:public": "rollup -c --environment BUILD:public",
     "build:sveltemantic": "rollup -c --environment BUILD:package",
     "watch": "rollup -c -w",
+    "watch:doc": "rollup -c -w --environment BUILD:docs",
     "watch:public": "rollup -c -w --environment BUILD:public",
     "watch:sveltemantic": "rollup -c -w --environment BUILD:package",
     "dev": "run-p serve:dev watch:public",
     "serve": "sirv public --single",
     "serve:dev": "sirv public --single --dev",
+    "publish": "run-s build:public build:sveltemantic \"npm publish\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -62,5 +65,13 @@
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.1",
     "sirv-cli": "^0.4.4"
-  }
+  },
+  "keywords": [
+    "sveltemantic",
+    "svelte",
+    "fomantic-ui",
+    "bindings",
+    "components",
+    "widgets"
+  ]
 }

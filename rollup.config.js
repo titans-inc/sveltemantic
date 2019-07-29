@@ -19,7 +19,7 @@ const tasks = []
 
 if (!build || build === 'public') {
     tasks.push({
-        input: 'src/index.js',
+        input: 'src/docs/index.js',
         output: {
             sourcemap: true,
             format: 'iife',
@@ -42,6 +42,7 @@ if (!build || build === 'public') {
                 targets: [
                     { src: 'node_modules/fomantic-ui-css/themes', dest: 'public' },
                     { src: 'logo.png', dest: 'public' },
+                    { src: 'src/docs', dest: 'public' },
                     { src: 'README.md', dest: 'public' }
                 ]
             }),
@@ -58,7 +59,7 @@ if (!build || build === 'public') {
             {
                 writeBundle (bundle) {
                     if (production) {
-                        ghPages.publish('public', function (err) {
+                        ghPages.publish('public', (err) => {
                             if (err) {
                                 console.error(err)
                             }
@@ -76,7 +77,7 @@ if (!build || build === 'public') {
 if (!build || build === 'package') {
     tasks.push(
         ...fs.readdirSync('src')
-            .filter(dir => fs.statSync(`src/${dir}`).isDirectory())
+            .filter(dir => dir !== 'docs' && fs.statSync(`src/${dir}`).isDirectory())
             .map(dir => ({
                 input: `src/${dir}/index.js`,
                 output: [
@@ -117,13 +118,16 @@ if (!build || build === 'docs') {
         return [...filePaths, ...dirFiles]
     }
 
+    const group = (file) => path.basename(path.dirname(file))
+    const component = (file) => path.basename(file, '.svelte').toLowerCase()
+
     tasks.push(
         ...getFilePaths('src')
-            .filter(file => !file.endsWith('SvelteMantic.svelte') && file.endsWith('.svelte'))
+            .filter(file => !file.endsWith('SvelteMantic.svelte') && !file.includes('docs') && file.endsWith('.svelte'))
             .map(file => ({
                 input: file,
                 output: {
-                    file: `public/docs/${path.basename(path.dirname(file))}/${path.basename(file, '.svelte')}.js`,
+                    file: `public/docs/${group(file)}/${component(file)}/${component(file)}.js`,
                     format: 'esm'
                 },
                 plugins: [

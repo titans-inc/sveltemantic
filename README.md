@@ -33,5 +33,21 @@ However, to make using Fomantic-UI themes easier, this library does not embed Fo
 - [x] Reveal
 - [x] Text
 
+### Behaviors
+- [ ] Todo
+
+### Collections
+- [ ] TODO
+
+### Modules
+- [ ] TODO
+
+### Views
+- [ ] TODO
+
+## Other UI Frameworks
+Svelte UI libraries are really starting to make good progress. Check these other framework bindings
+- [Svelte 3 Material UI](https://github.com/hperrin/svelte-material-ui)
+
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftitans-inc%2Fsveltemantic.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftitans-inc%2Fsveltemantic?ref=badge_large)

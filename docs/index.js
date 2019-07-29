@@ -6,8 +6,7 @@ const sveltemantic = new Docs({
     target: document.body,
     props: {
         production: ('__PRODUCTION__' === 'true')
-    },
-    customElements: true
+    }
 })
 
 export default sveltemantic

@@ -1,3 +1,3 @@
-var Header = [{type:"let",name:"page",value:"''"},{type:"let",name:"s",value:""}];
+var Header = [{type:"let",name:"page",value:"''"}];
 
 export default Header;

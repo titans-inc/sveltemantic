@@ -2,13 +2,13 @@
   "version": 3,
   "file": "bundle.css",
   "sources": [
-    "../src/elements/Icon.svelte",
-    "../src/elements/Flag.svelte"
+    "../src/elements/Flag.svelte",
+    "../src/elements/Icon.svelte"
   ],
   "sourcesContent": [
-    "<script>\n    export let color = '';\n    export let name = '';\n    export let corner = '';\n    export let size = '';\n    export let flipped = '';\n    export let rotated = '';\n    export let bordered = false;\n    export let circular = false;\n    export let disabled = false;\n    export let inverted = false;\n    export let loading = false;\n    export let fitted = false;\n    export let link = false;\n</script>\n\n<style>\n    i.icon.error::before {\n        content: '\\f0000'\n    }\n</style>\n\n<i class=\"{name ? name.toLowerCase() : 'error'} {size} {color} {flipped} {rotated} {corner} icon\" class:bordered class:circular\nclass:disabled class:inverted class:loading class:fitted class:link class:flipped class:rotated class:corner></i>",
-    "<script>\n    export let code = '';\n    export let name = '';\n    export let alias = '';\n\n    function normalizedFlag() {\n        if (code && code.length === 2) {\n            return code;\n        } else if (name) {\n            return name.toLowerCase().replace('.', '');\n        } else if (alias) {\n            return alias.toLowerCase();\n        } else {\n            return 'error';\n        }\n    }\n</script>\n\n<style>\n    i.flag.error:not(.icon)::before {\n        content: '\\f0000';\n    }\n</style>\n\n<i class=\"{normalizedFlag()} flag\"></i>"
+    "<script>\n    export let code = '';\n    export let name = '';\n    export let alias = '';\n\n    function normalizedFlag() {\n        if (code && code.length === 2) {\n            return code;\n        } else if (name) {\n            return name.toLowerCase().replace('.', '');\n        } else if (alias) {\n            return alias.toLowerCase();\n        } else {\n            return 'error';\n        }\n    }\n</script>\n\n<style>\n    i.flag.error:not(.icon)::before {\n        content: '\\f0000';\n    }\n</style>\n\n<i class=\"{normalizedFlag()} flag\"></i>",
+    "<script>\n    export let color = '';\n    export let name = '';\n    export let corner = '';\n    export let size = '';\n    export let flipped = '';\n    export let rotated = '';\n    export let bordered = false;\n    export let circular = false;\n    export let disabled = false;\n    export let inverted = false;\n    export let loading = false;\n    export let fitted = false;\n    export let link = false;\n</script>\n\n<style>\n    i.icon.error::before {\n        content: '\\f0000'\n    }\n</style>\n\n<i class=\"{name ? name.toLowerCase() : 'error'} {size} {color} {flipped} {rotated} {corner} icon\" class:bordered class:circular\nclass:disabled class:inverted class:loading class:fitted class:link class:flipped class:rotated class:corner></i>"
   ],
   "names": [],
-  "mappings": "AAiBI,CAAC,KAAK,oBAAM,QAAQ,AAAC,CAAC,AAClB,OAAO,CAAE,QAAQ;IACrB,CAAC;ACAD,CAAC,KAAK,qBAAM,KAAK,KAAK,CAAC,QAAQ,AAAC,CAAC,AAC7B,OAAO,CAAE,QAAQ,AACrB,CAAC"
+  "mappings": "AAmBI,CAAC,KAAK,qBAAM,KAAK,KAAK,CAAC,QAAQ,AAAC,CAAC,AAC7B,OAAO,CAAE,QAAQ,AACrB,CAAC;ACJD,CAAC,KAAK,oBAAM,QAAQ,AAAC,CAAC,AAClB,OAAO,CAAE,QAAQ;IACrB,CAAC"
 }

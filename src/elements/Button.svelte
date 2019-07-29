@@ -1,5 +1,4 @@
 <script>
-    import { afterUpdate } from 'svelte';
     import { listen } from 'svelte/internal';
 
     import Icon from './Icon.svelte';
@@ -24,27 +23,32 @@
     export let circular = false;
     export let icon = '';
 
-    let _unlistener = null;
-    let _el = null;
-
     function toggleState(e) {
         if(toggle) {
             active = !active;
         }
     }
 
-    afterUpdate(() => {
-        if((typeof toggle === 'string' || toggle instanceof String) && toggle.startsWith('on:')) {
-            _unlistener = !_unlistener ? _unlistener : _unlistener()
-            _unlistener = listen(_el, toggle.substring(3), toggleState)
+    function activate(node, ev) {
+        let _unlistener = typeof ev === 'string' && ev.startsWith('on:') ? listen(node, ev.substring(3), toggleState) : null;
+        
+        return {
+            update(ev) {
+                _unlistener = _unlistener ? _unlistener() : null
+                _unlistener = typeof ev === 'string' && ev.startsWith('on:') ? listen(node, ev.substring(3), toggleState) : null;
+            },
+
+            destroy() {
+                if(_unlistener) _unlistener();
+            }
         }
-    })
+    }
 </script>
 
 {#if animation}
     <div class="ui animated {animation} {color} {size} {floated} {attached} button" tabindex="0"  
     class:active class:tertiary class:basic class:inverted class:compact class:toggle class:fluid
-    class:positive class:negative class:circular class:icon class:floated class:attached bind:this={_el}>
+    class:positive class:negative class:circular class:icon class:floated class:attached use:activate={toggle}>
         <div class="visible content">
             <slot name="visible">No visible content provided</slot>
         </div>
@@ -55,13 +59,13 @@
 {:else if labeled}
     <div class="ui labeled {color} {size} {floated} {labeled} {attached} button" tabindex="0"  
     class:active class:tertiary class:basic class:inverted class:compact class:toggle class:fluid
-    class:positive class:negative class:circular class:icon class:floated class:attached bind:this={_el}>
+    class:positive class:negative class:circular class:icon class:floated class:attached use:activate={toggle}>
         <slot></slot>
     </div>
 {:else}
     <button class="ui {emphasis} {color} {loading} {size} {floated} {attached} button" 
     class:active class:tertiary class:basic class:inverted class:loading class:compact class:toggle class:fluid
-    class:positive class:negative class:circular class:icon class:floated class:attached bind:this={_el}>
+    class:positive class:negative class:circular class:icon class:floated class:attached use:activate={toggle}>
         {#if loading}
             Loading
         {:else}

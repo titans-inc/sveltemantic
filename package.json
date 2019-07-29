@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/titans-inc/sveltemantic#readme",
   "dependencies": {
-    "svelte": "^3.6.8"
+    "svelte": "^3.6.9"
   },
   "devDependencies": {
     "eslint": "^6.1.0",

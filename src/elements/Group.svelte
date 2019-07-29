@@ -10,10 +10,15 @@
     export let circular = false;
     export let buttons = false;
     export let labels = false;
+    export let icons = false;
 </script>
 
-<div class="ui {size} {direction} {attached} {color}" class:images class:icon class:buttons 
-class:labels={!buttons} class:labeled={buttons && labels} class:basic class:attached
-class:tag class:circular>
-    <slot></slot>
-</div>
+{#if icons}
+    <i class="{size} icons"></i>
+{:else}
+    <div class="ui {size} {direction} {attached} {color}" class:images class:icon class:buttons 
+    class:labels={!buttons} class:labeled={buttons && labels} class:basic class:attached
+    class:tag class:circular>
+        <slot></slot>
+    </div>
+{/if}

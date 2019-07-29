@@ -18,6 +18,20 @@ However, to make using Fomantic-UI themes easier, this library does not embed Fo
 
 
 ## Progress List
+### Elements
+- [x] Buttons
+- [x] Container
+- [ ] Divider
+- [x] Flag
+- [ ] Group
+- [ ] Header
+- [x] Icon
+- [x] Image
+- [x] Loader
+- [x] Placeholder
+- [x] Rail
+- [x] Reveal
+- [x] Text
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftitans-inc%2Fsveltemantic.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftitans-inc%2Fsveltemantic?ref=badge_large)

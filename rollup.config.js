@@ -77,7 +77,7 @@ if (!build || build === 'public') {
 if (!build || build === 'package') {
     tasks.push(
         ...fs.readdirSync('src')
-            .filter(dir => dir !== 'docs' && fs.statSync(`src/${dir}`).isDirectory())
+            .filter(dir => dir !== 'docs' && dir !== 'lib' && fs.statSync(`src/${dir}`).isDirectory())
             .map(dir => ({
                 input: `src/${dir}/index.js`,
                 output: [

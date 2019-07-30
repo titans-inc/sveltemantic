@@ -21,16 +21,21 @@ However, to make using Fomantic-UI themes easier, this library does not embed Fo
 ### Elements
 - [x] Buttons
 - [x] Container
-- [ ] Divider
+- [x] Divider (No Header support)
 - [x] Flag
-- [ ] Group
-- [ ] Header
+- [x] Group [Supports grouping for Label, Button, Icon, Segment] (No Step support yet)
+- [x] Header
 - [x] Icon
 - [x] Image
+- [x] Input
+- [ ] Label
+- [ ] List
 - [x] Loader
 - [x] Placeholder
 - [x] Rail
 - [x] Reveal
+- [x] Segment
+- [x] Step
 - [x] Text
 
 ### Behaviors
@@ -43,6 +48,9 @@ However, to make using Fomantic-UI themes easier, this library does not embed Fo
 - [ ] TODO
 
 ### Views
+- [ ] TODO
+
+## Tests
 - [ ] TODO
 
 ## Other UI Frameworks

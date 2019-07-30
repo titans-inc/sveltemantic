@@ -1,5 +1,6 @@
 <script>
     import { listen } from 'svelte/internal';
+    import { smfloated, smlabeled } from './lib/util';
 
     import Icon from './Icon.svelte';
 
@@ -15,13 +16,16 @@
     export let compact = false;
     export let toggle = '';
     export let fluid = false;
-    export let floated = '';
+    export let float = '';
     export let attached = '';
-    export let labeled = '';
+    export let label = '';
     export let positive = false;
     export let negative = false;
     export let circular = false;
     export let icon = '';
+
+    $: floated = smfloated(float)
+    $: labeled = smlabeled(label)
 
     function toggleState(e) {
         if(toggle) {
@@ -48,7 +52,7 @@
 {#if animation}
     <div class="ui animated {animation} {color} {size} {floated} {attached} button" tabindex="0"  
     class:active class:tertiary class:basic class:inverted class:compact class:toggle class:fluid
-    class:positive class:negative class:circular class:icon class:floated class:attached use:activate={toggle}>
+    class:positive class:negative class:circular class:icon class:attached use:activate={toggle}>
         <div class="visible content">
             <slot name="visible">No visible content provided</slot>
         </div>
@@ -57,15 +61,15 @@
         </div>
     </div>
 {:else if labeled}
-    <div class="ui labeled {color} {size} {floated} {labeled} {attached} button" tabindex="0"  
+    <div class="ui {color} {size} {floated} {labeled} {attached} button" tabindex="0"  
     class:active class:tertiary class:basic class:inverted class:compact class:toggle class:fluid
-    class:positive class:negative class:circular class:icon class:floated class:attached use:activate={toggle}>
+    class:positive class:negative class:circular class:icon class:attached use:activate={toggle}>
         <slot></slot>
     </div>
 {:else}
     <button class="ui {emphasis} {color} {loading} {size} {floated} {attached} button" 
     class:active class:tertiary class:basic class:inverted class:loading class:compact class:toggle class:fluid
-    class:positive class:negative class:circular class:icon class:floated class:attached use:activate={toggle}>
+    class:positive class:negative class:circular class:icon class:attached use:activate={toggle}>
         {#if loading}
             Loading
         {:else}

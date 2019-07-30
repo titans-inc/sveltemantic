@@ -1,9 +1,11 @@
 <script>
+    import { smaligned } from './lib/util';
+
     export let fluid = false;
     export let text = false;
     export let alignment = '';
 
-    $: aligned = ['left', 'center', 'right'].indexOf(alignment) !== -1 ? `${alignment} aligned` : alignment
+    $: aligned = smaligned(alignment)
 </script>
 
 <div class="ui {aligned} container" class:fluid class:text>

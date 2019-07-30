@@ -1,4 +1,6 @@
 <script>
+    import { smfloated } from './lib/util';
+
     export let size = '';
     export let src = '';
     export let alt = '';
@@ -13,11 +15,13 @@
     export let variation = '';
     export let float = '';
     export let content = ''; // Only supported alongside of Reveal component
+
+    $: floated = smfloated(float)
 </script>
 
 {#if (parent || svg) && !content }
-    <div class="ui {size} {variation} {vertical} {spaced} {float} image" 
-    class:hidden class:disabled class:aligned={vertical} class:floated={float} class:centered class:spaced>
+    <div class="ui {size} {variation} {vertical} {spaced} {floated} image" 
+    class:hidden class:disabled class:aligned={vertical} class:centered class:spaced>
         {#if svg}
             <slot></slot>
         {:else}
@@ -25,8 +29,8 @@
         {/if}
     </div>
 {:else if href && !content}
-    <a {href} class="ui {size} {variation} {vertical} {spaced} {float} image" 
-    class:hidden class:disabled class:aligned={vertical} class:floated={float} class:centered class:spaced>
+    <a {href} class="ui {size} {variation} {vertical} {spaced} {floated} image" 
+    class:hidden class:disabled class:aligned={vertical} class:centered class:spaced>
         {#if svg}
             <slot></slot>
         {:else}
@@ -36,7 +40,7 @@
 {:else if content}
     <img class="{content}" class:content {src} {alt} />
 {:else}
-    <img class="ui {size} {variation} {vertical} {spaced} {float} image" 
-    class:hidden class:disabled class:aligned={vertical} class:floated={float} class:centered class:spaced 
+    <img class="ui {size} {variation} {vertical} {spaced} {floated} image" 
+    class:hidden class:disabled class:aligned={vertical} class:centered class:spaced 
     {src} {alt} />
 {/if}

@@ -1,5 +1,5 @@
 <script>
-    export let direction = 'vertical';
+    export let direction = '';
     export let inverted = false;
     export let fitted = false;
     export let hidden = false;

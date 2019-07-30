@@ -1,5 +1,6 @@
 function smdirectional (direction, clx) {
-    return typeof direction === 'boolean' && direction ? clx : `${direction} ${clx}`
+    if (!direction) return ''
+    return typeof direction === 'boolean' ? clx : `${direction} ${clx}`
 }
 
 export function smfloated (float) {

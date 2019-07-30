@@ -8,7 +8,10 @@
 
     function iterable(t) {
         if (Array.isArray(t)) return t;
-        else return Array(t).fill('');
+        else {
+            t = parseInt(t)
+            return Array(isNaN(t) ? 1 : t).fill('');
+        }
     }
 </script>
 
@@ -25,8 +28,16 @@
     <slot>
         {#if image && !header}
             <div class="image {image}"></div>
-        {:else if Array.isArray(paragraphs) && paragraphs.length > 0}
-            {#each paragraphs as para}
+        {:else if paragraphs && lines}
+            {#each iterable(paragraphs) as para}
+                <div class="paragraph">
+                    {#each iterable(lines) as line}
+                        <div class="{line} line"></div>
+                    {/each}
+                </div>
+            {/each}
+        {:else if paragraphs}
+            {#each iterable(paragraphs) as para}
                 <div class="paragraph">
                     {#each iterable(para) as line}
                         <div class="{line} line"></div>

@@ -1,6 +1,6 @@
 {
   "name": "sveltemantic",
-  "version": "0.0.1-alpha.5",
+  "version": "0.0.1-alpha.7",
   "description": "Fomantic-UI components for Svelte 3",
   "main": "index.js",
   "module": "index.mjs",
@@ -10,7 +10,7 @@
     "collections",
     "elements",
     "modules",
-    "sveltemantic",
+    "views",
     "README.md",
     "LICENSE"
   ],
@@ -20,16 +20,12 @@
   "scripts": {
     "build": "rollup -c",
     "build:doc": "rollup -c --environment BUILD:docs",
-    "build:public": "rollup -c --environment BUILD:public",
     "build:sveltemantic": "rollup -c --environment BUILD:package",
     "watch": "rollup -c -w",
     "watch:doc": "rollup -c -w --environment BUILD:docs",
-    "watch:public": "rollup -c -w --environment BUILD:public",
     "watch:sveltemantic": "rollup -c -w --environment BUILD:package",
-    "dev": "run-p serve:dev watch:public",
-    "serve": "sirv public --single",
-    "serve:dev": "sirv public --single --dev",
-    "publish": "run-s build:public build:sveltemantic \"npm publish\"",
+    "prepublishOnly": "run-s build:doc build:sveltemantic",
+    "postpublish": "rimraf behaviors collections elements modules views index.js index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -52,20 +48,14 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
-    "fomantic-ui-css": "^2.7.6",
-    "gh-pages": "^2.0.1",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.12.0",
     "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-copy": "^3.0.0",
-    "rollup-plugin-css-only": "^1.0.0",
-    "rollup-plugin-livereload": "^1.0.1",
+    "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-sveltedoc": "^1.0.0-alpha1",
-    "rollup-plugin-terser": "^5.1.1",
-    "sirv-cli": "^0.4.4"
+    "rollup-plugin-terser": "^5.1.1"
   },
   "keywords": [
     "sveltemantic",

@@ -62,7 +62,7 @@ typings/
 
 # misc
 /public
-/src/docs
+/docs
 
 /behaviors
 /collections

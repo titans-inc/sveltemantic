@@ -12,7 +12,7 @@
             <a href="/"><b>UI Docs</b></a>
         </div>
 
-        <a class="item" rel='prefetch' href="/about" class:active={segment === 'getting-started'}>
+        <a class="item" rel='prefetch' href="getting-started" class:active={segment === 'getting-started'}>
             <b>Getting Started</b>
         </a>
 

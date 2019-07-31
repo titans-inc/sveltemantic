@@ -1,0 +1,49 @@
+{
+  "name": "sveltemantic-docs",
+  "description": "Documentation for SvelteMantic",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "sapper dev",
+    "build": "sapper build --legacy",
+    "export": "sapper export --legacy",
+    "start": "node __sapper__/build",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "run-p --race dev cy:run",
+    "clean": "rimraf __sapper__",
+    "src": "node ./scripts/src.js && node ./scripts/push.js",
+    "deploy": "run-s clean export src"
+  },
+  "dependencies": {
+    "compression": "^1.7.1",
+    "fomantic-ui-css": "^2.7.7",
+    "polka": "next",
+    "sirv": "^0.4.0",
+    "sveltemantic": "0.0.1-alpha.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "gh-pages": "^2.0.1",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.12.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titans-inc/sveltemantic.git"
+  },
+  "license": "UNLICENSED"
+}

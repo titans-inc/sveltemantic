@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-function copyFolderSync (from, to, exclude) {
+function copyFolderSync (from, to, exclude = []) {
     fs.mkdirSync(to, { recursive: true })
     fs.readdirSync(from).filter((f) => !exclude.includes(f))
         .forEach(element => {
@@ -13,4 +13,6 @@ function copyFolderSync (from, to, exclude) {
         })
 }
 
-copyFolderSync('.', '__sapper__/export/src', ['node_modules', '__sapper__'])
+copyFolderSync('.', '__sapper__/export/src', ['node_modules', '__sapper__', 'LICENSE', 'README.md'])
+fs.copyFileSync('LICENSE', '__sapper__/export/LICENSE')
+fs.copyFileSync('README.md', '__sapper__/export/README.md')

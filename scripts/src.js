@@ -13,6 +13,6 @@ function copyFolderSync (from, to, exclude = []) {
         })
 }
 
-copyFolderSync('.', '__sapper__/export/src', ['node_modules', '__sapper__', 'LICENSE', 'README.md'])
-fs.copyFileSync('LICENSE', '__sapper__/export/LICENSE')
-fs.copyFileSync('README.md', '__sapper__/export/README.md')
+copyFolderSync('.', '__sapper__/export/sveltemantic', ['node_modules', '__sapper__', 'LICENSE', 'README.md'])
+fs.copyFileSync('LICENSE', '__sapper__/export/sveltemantic/LICENSE')
+fs.copyFileSync('README.md', '__sapper__/export/sveltemantic/README.md')

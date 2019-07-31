@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build --basepath sveltemantic  --legacy",
+    "build": "sapper build --legacy",
     "export": "sapper export --basepath sveltemantic --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
@@ -12,8 +12,8 @@
     "test": "run-p --race dev cy:run",
     "clean": "rimraf __sapper__",
     "src": "node ./scripts/src.js",
-    "push": "gh-pages -d __sapper__/export",
-    "deploy": "run-s clean export src"
+    "push": "gh-pages -d __sapper__/export/sveltemantic",
+    "deploy": "run-s clean export src push"
   },
   "dependencies": {
     "compression": "^1.7.1",

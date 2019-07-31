@@ -6,7 +6,7 @@
 <div class="toc">
     <div class="ui vertical inverted menu">
         <div class="item" class:active={segment === undefined}>
-            <a class="ui logo icon image" href="/">
+            <a class="ui logo icon image" href="./">
                 <img src="logo.png" alt="SvelteMantic Logo">
             </a>
             <a href="/"><b>UI Docs</b></a>

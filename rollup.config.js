@@ -1,11 +1,11 @@
-import fs from 'fs'
-import path from 'path'
+// import fs from 'fs'
+// import path from 'path'
 import svelte from 'rollup-plugin-svelte'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import copy from 'rollup-plugin-copy'
-import sveltedoc from 'rollup-plugin-sveltedoc'
+// import sveltedoc from 'rollup-plugin-sveltedoc'
 
 const production = !process.env.ROLLUP_WATCH
 const build = process.env.BUILD ? process.env.BUILD : false
@@ -25,7 +25,7 @@ if (!build || build === 'package') {
                 format: 'cjs'
             }
         ],
-        //external,
+        external,
         plugins: [
             copy({
                 targets: [
@@ -43,7 +43,7 @@ if (!build || build === 'package') {
     })
 }
 
-if (!build || build === 'docs') {
+/** if (!build || build === 'docs') {
     const getFilePaths = (folderPath) => {
         const entryPaths = fs.readdirSync(folderPath).map(entry => path.join(folderPath, entry))
         const filePaths = entryPaths.filter(entryPath => fs.statSync(entryPath).isFile())
@@ -69,6 +69,6 @@ if (!build || build === 'docs') {
                 ]
             }))
     )
-}
+} **/
 
 export default tasks

@@ -2,6 +2,8 @@
     <img style="width: 200px;height: auto;font-size: 1rem;margin-left: auto;display: block;position: relative;vertical-align: middle;background-color: transparent;margin-right: auto;" src="logo.png" alt="SvelteMantic logo">
 </div>
 
+[![Build Status](https://travis-ci.com/titans-inc/sveltemantic.svg?branch=master)](https://travis-ci.com/titans-inc/sveltemantic)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7bea1f3989b449d192df64881a79a2db)](https://www.codacy.com/app/deviprsd/sveltemantic?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=titans-inc/sveltemantic&amp;utm_campaign=Badge_Grade)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/titans-inc/sveltemantic)
 ![David](https://img.shields.io/david/titans-inc/sveltemantic)
 ![node](https://img.shields.io/node/v/sveltemantic)

@@ -1,6 +1,7 @@
 env:
   browser: true
   es6: true
+  "jest/globals": true
 extends:
   - standard
 globals:
@@ -9,6 +10,7 @@ globals:
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
+plugins: ["jest"]
 rules:
   "indent": ["error", 4]
   'no-cond-assign': 0
@@ -26,4 +28,9 @@ rules:
   'arrow-spacing': 2
   'no-inner-declarations': 0
   'require-atomic-updates': 'off'
+  'jest/no-disabled-tests': 'warn'
+  'jest/no-focused-tests': 'error'
+  'jest/no-identical-title': 'error'
+  'jest/prefer-to-have-length': 'warn'
+  'jest/valid-expect': 'error'
 

@@ -42,7 +42,9 @@
   },
   "homepage": "https://github.com/titans-inc/sveltemantic#readme",
   "remarkConfig": {
-    "plugins": ["remark-preset-lint-recommended"]
+    "plugins": [
+      "remark-preset-lint-recommended"
+    ]
   },
   "dependencies": {
     "clsx": "^1.0.4",

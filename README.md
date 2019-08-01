@@ -19,7 +19,6 @@ The philosophy of this library is to provide all Fomantic-UI (fork of Semantic-U
 
 However, to make using Fomantic-UI themes easier, this library does not embed Fomantic-UI styles directly and you will need to include Fomantic-UI CSS in your web app.
 
-
 ## Progress List
 ### Elements
 -   [x] Buttons

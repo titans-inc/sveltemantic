@@ -24,6 +24,7 @@
     "lint-md": "remark .",
     "prepublishOnly": "run-s build:doc build:sveltemantic",
     "postpublish": "rimraf behaviors collections elements modules views index.js index.mjs",
+    "cp:report": "jscpd .",
     "test": "run-s test:snapshot test:coverage",
     "test:snapshot": "jest -u",
     "test:coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
@@ -48,6 +49,8 @@
   },
   "dependencies": {
     "clsx": "^1.0.4",
+    "jscpd": "^2.0.15",
+    "jscpd-badge-reporter": "^1.1.3",
     "remark-cli": "^7.0.0",
     "remark-preset-lint-recommended": "^3.0.3",
     "svelte": "^3.6.9"

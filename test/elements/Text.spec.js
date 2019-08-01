@@ -58,7 +58,7 @@ describe('Text.svelte', () => {
         expect(getByTestId(testId)).toHaveClass('ui', 'disabled', 'text')
     })
 
-    test('Text with additional classes', () => {
+    test('Text with additional classes and attributes', () => {
         const { getByTestId } = render(Text, {
             props: propsWithTestId({
                 class: 'text-lato text-compact'
@@ -67,6 +67,7 @@ describe('Text.svelte', () => {
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
         expect(getByTestId(testId)).toHaveClass('ui', 'text-lato', 'text-compact', 'text')
+        expect(getByTestId(testId)).toHaveAttribute('data-testid', testId)
     })
 
     test('Text with custom actions', () => {
@@ -82,13 +83,6 @@ describe('Text.svelte', () => {
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
         expect(getByTestId(testId)).toHaveClass('ui', 'drag-drop-enable', 'text')
         expect(getByTestId(testId)).toHaveAttribute('draggable', 'true')
-    })
-
-    test('Text with additional attributes', () => {
-        const { getByTestId } = render(Text, { props: propsWithTestId() })
-
-        expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveAttribute('data-testid', testId)
     })
 
     test('Text with dom events', async () => {
@@ -120,22 +114,22 @@ describe('Text.svelte', () => {
                 disabled: true,
                 inverted: true,
                 use: [
-                    node => node.classList.add('drag-drop-enable'),
-                    node => node.setAttribute('draggable', 'true')
+                    node => node.classList.add('hidden'),
+                    node => node.setAttribute('aria-label', 'true')
                 ]
             })
         })
 
-        component.$on('click', event => {
-            event.target.setAttribute('clicked', true)
+        component.$on('dblclick', event => {
+            event.target.setAttribute('dblclicked', true)
         })
 
-        component.$on('focus', event => {
-            event.target.setAttribute('focused', true)
+        component.$on('blur', event => {
+            event.target.setAttribute('blured', true)
         })
 
-        fireEvent.click(getByTestId(testId))
-        fireEvent.focus(getByTestId(testId))
+        fireEvent.dblClick(getByTestId(testId))
+        fireEvent.blur(getByTestId(testId))
 
         const span = await waitForElement(() => getByTestId(testId))
 

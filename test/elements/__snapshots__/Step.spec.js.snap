@@ -2,16 +2,18 @@
 
 exports[`Step.svelte Step with active prop 1`] = `"<div class=\\"step active\\" data-testid=\\"any\\"></div>"`;
 
-exports[`Step.svelte Step with additional classes 1`] = `"<div class=\\"step text-lato text-compact\\" data-testid=\\"any\\"></div>"`;
+exports[`Step.svelte Step with additional classes and attributes 1`] = `"<div class=\\"step clearfix command\\" data-testid=\\"any\\"></div>"`;
 
 exports[`Step.svelte Step with completed prop 1`] = `"<div class=\\"step completed\\" data-testid=\\"any\\"></div>"`;
 
-exports[`Step.svelte Step with custom actions 1`] = `"<div class=\\"step drag-drop-enable\\" data-testid=\\"any\\" draggable=\\"true\\"></div>"`;
+exports[`Step.svelte Step with custom actions 1`] = `"<div class=\\"step active\\" data-testid=\\"any\\" data-step=\\"#steps\\"></div>"`;
 
 exports[`Step.svelte Step with default props 1`] = `"<div class=\\"step\\" data-testid=\\"any\\"></div>"`;
 
 exports[`Step.svelte Step with disabled prop 1`] = `"<div class=\\"step disabled\\" data-testid=\\"any\\"></div>"`;
 
+exports[`Step.svelte Step with dom events 1`] = `"<a href=\\"https://google.com\\" class=\\"step\\" data-testid=\\"any\\" mousedown=\\"true\\"></a>"`;
+
 exports[`Step.svelte Step with link prop 1`] = `"<a href=\\"https://github.com/titans-inc/sveltemantic\\" class=\\"step\\" data-testid=\\"any\\"></a>"`;
 
-exports[`Step.svelte Step with multiple props and events snapshot 1`] = `"<a href=\\"https://github.com/titans-inc/sveltemantic\\" class=\\"step extra completed disabled drag-drop-enable\\" data-testid=\\"any\\" draggable=\\"true\\" clicked=\\"true\\" focused=\\"true\\"></a>"`;
+exports[`Step.svelte Step with multiple props and events snapshot 1`] = `"<a href=\\"https://github.com/titans-inc/sveltemantic\\" class=\\"step extra completed disabled orange\\" data-testid=\\"any\\" data-tag=\\"card\\" cut=\\"true\\" copy=\\"true\\"></a>"`;

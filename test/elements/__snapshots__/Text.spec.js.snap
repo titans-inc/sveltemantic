@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text.svelte Text with additional attributes 1`] = `"<span class=\\"ui text\\" data-testid=\\"any\\"></span>"`;
-
-exports[`Text.svelte Text with additional classes 1`] = `"<span class=\\"ui text-lato text-compact text\\" data-testid=\\"any\\"></span>"`;
+exports[`Text.svelte Text with additional classes and attributes 1`] = `"<span class=\\"ui text-lato text-compact text\\" data-testid=\\"any\\"></span>"`;
 
 exports[`Text.svelte Text with color prop 1`] = `"<span class=\\"ui red text\\" data-testid=\\"any\\"></span>"`;
 
@@ -16,6 +14,6 @@ exports[`Text.svelte Text with dom events 1`] = `"<span class=\\"ui text\\" data
 
 exports[`Text.svelte Text with inverted prop 1`] = `"<span class=\\"ui inverted text\\" data-testid=\\"any\\"></span>"`;
 
-exports[`Text.svelte Text with multiple props and events snapshot 1`] = `"<span class=\\"ui purple inverted disabled extra text drag-drop-enable\\" data-testid=\\"any\\" draggable=\\"true\\" clicked=\\"true\\" focused=\\"true\\"></span>"`;
+exports[`Text.svelte Text with multiple props and events snapshot 1`] = `"<span class=\\"ui purple inverted disabled extra text hidden\\" data-testid=\\"any\\" aria-label=\\"true\\" dblclicked=\\"true\\" blured=\\"true\\"></span>"`;
 
 exports[`Text.svelte Text with size prop 1`] = `"<span class=\\"ui huge text\\" data-testid=\\"any\\"></span>"`;

@@ -61,56 +61,50 @@ describe('Step.svelte', () => {
         expect(getByTestId(testId)).toHaveClass('step', 'disabled')
     })
 
-    test('Step with additional classes', () => {
+    test('Step with additional classes and attributes', () => {
         const { getByTestId } = render(Step, {
             props: propsWithTestId({
-                class: 'text-lato text-compact'
+                class: 'clearfix command'
             })
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('step', 'text-lato', 'text-compact')
+        expect(getByTestId(testId)).toHaveClass('step', 'clearfix', 'command')
+        expect(getByTestId(testId)).toHaveAttribute('data-testid', testId)
     })
 
     test('Step with custom actions', () => {
         const { getByTestId } = render(Step, {
             props: propsWithTestId({
                 use: [
-                    node => node.classList.add('drag-drop-enable'),
-                    node => node.setAttribute('draggable', 'true')
+                    node => node.classList.add('active'),
+                    node => node.setAttribute('data-step', '#steps')
                 ]
             })
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('step', 'drag-drop-enable')
-        expect(getByTestId(testId)).toHaveAttribute('draggable', 'true')
-    })
-
-    test('Step with additional attributes', () => {
-        const { getByTestId } = render(Step, { props: propsWithTestId() })
-
-        expect(getByTestId(testId)).toHaveAttribute('data-testid', testId)
+        expect(getByTestId(testId)).toHaveClass('step', 'active')
+        expect(getByTestId(testId)).toHaveAttribute('data-step', '#steps')
     })
 
     test('Step with dom events', async () => {
-        const { component, getByTestId } = render(Step, { props: propsWithTestId() })
-
-        component.$on('click', event => {
-            event.target.setAttribute('clicked', true)
+        const { component, getByTestId } = render(Step, {
+            props: propsWithTestId({
+                link: 'https://google.com'
+            })
         })
 
-        component.$on('focus', event => {
-            event.target.setAttribute('focused', true)
+        component.$on('mousedown', event => {
+            event.target.setAttribute('mousedown', true)
         })
 
-        fireEvent.click(getByTestId(testId))
-        fireEvent.focus(getByTestId(testId))
+        fireEvent.mouseDown(getByTestId(testId))
 
         const div = await waitForElement(() => getByTestId(testId))
 
-        expect(div).toHaveAttribute('clicked')
-        expect(div).toHaveAttribute('focused')
+        expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
+        expect(div).toHaveAttribute('mousedown', 'true')
     })
 
     test('Step with multiple props and events snapshot', async () => {
@@ -121,22 +115,22 @@ describe('Step.svelte', () => {
                 disabled: true,
                 link: 'https://github.com/titans-inc/sveltemantic',
                 use: [
-                    node => node.classList.add('drag-drop-enable'),
-                    node => node.setAttribute('draggable', 'true')
+                    node => node.classList.add('orange'),
+                    node => node.setAttribute('data-tag', 'card')
                 ]
             })
         })
 
-        component.$on('click', event => {
-            event.target.setAttribute('clicked', true)
+        component.$on('cut', event => {
+            event.target.setAttribute('cut', true)
         })
 
-        component.$on('focus', event => {
-            event.target.setAttribute('focused', true)
+        component.$on('copy', event => {
+            event.target.setAttribute('copy', true)
         })
 
-        fireEvent.click(getByTestId(testId))
-        fireEvent.focus(getByTestId(testId))
+        fireEvent.cut(getByTestId(testId))
+        fireEvent.copy(getByTestId(testId))
 
         const div = await waitForElement(() => getByTestId(testId))
 

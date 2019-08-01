@@ -6,4 +6,4 @@ node_js:
   - "11"
   - "12"
 script:
-  npm run test-with-coverage
+  npm run test:coverage

@@ -1,6 +1,6 @@
 {
   "name": "sveltemantic",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "Fomantic-UI components for Svelte 3",
   "main": "index.js",
   "module": "index.mjs",
@@ -26,8 +26,9 @@
     "watch:sveltemantic": "rollup -c -w --environment BUILD:package",
     "prepublishOnly": "run-s build:doc build:sveltemantic",
     "postpublish": "rimraf behaviors collections elements modules views index.js index.mjs",
-    "test": "jest",
-    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
+    "test": "run-s test:snapshot test:coverage",
+    "test:snapshot": "jest -u",
+    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
   },
   "repository": {
     "type": "git",
@@ -40,8 +41,7 @@
   },
   "homepage": "https://github.com/titans-inc/sveltemantic#readme",
   "dependencies": {
-    "@types/classnames": "^2.2.9",
-    "classnames": "^2.2.6",
+    "clsx": "^1.0.4",
     "svelte": "^3.6.9"
   },
   "devDependencies": {
@@ -66,7 +66,6 @@
     "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.0.3",
-    "rollup-plugin-sveltedoc": "^1.0.0-alpha1",
     "rollup-plugin-terser": "^5.1.1"
   },
   "keywords": [

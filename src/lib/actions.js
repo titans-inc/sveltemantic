@@ -1,4 +1,4 @@
-export function useActions (node, actions) {
+export function actions (node, actions) {
     const objects = []
 
     if (actions) {
@@ -14,6 +14,14 @@ export function useActions (node, actions) {
     }
 
     return {
+        destroy () {
+            for (let i = 0; i < objects.length; i++) {
+                if (objects[i] && 'destroy' in objects[i]) {
+                    objects[i].destroy()
+                }
+            }
+        },
+
         update (actions) {
             if ((actions && actions.length || 0) != objects.length) {
                 throw new Error('You must not change the length of an actions array.')
@@ -29,14 +37,6 @@ export function useActions (node, actions) {
                             objects[i].update()
                         }
                     }
-                }
-            }
-        },
-
-        destroy () {
-            for (let i = 0; i < objects.length; i++) {
-                if (objects[i] && 'destroy' in objects[i]) {
-                    objects[i].destroy()
                 }
             }
         }

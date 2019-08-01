@@ -1,76 +1,79 @@
 import { render, cleanup, fireEvent, waitForElement } from '@testing-library/svelte'
-import Text from '../../src/elements/Text.svelte'
+import Step from '../../src/elements/Step.svelte'
 
 beforeEach(() => {
-    testId = id('text')
+    testId = id('step')
     cleanup()
 })
 
-describe('Text.svelte', () => {
-    test('Text with default props', () => {
-        const { getByTestId } = render(Text, { props: propsWithTestId() })
+describe('Step.svelte', () => {
+    test('Step with default props', () => {
+        const { getByTestId } = render(Step, { props: propsWithTestId() })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('ui', 'text')
+        expect(getByTestId(testId)).toHaveClass('step')
+        expect(getByTestId(testId)).toBeInstanceOf(HTMLDivElement)
     })
 
-    test('Text with color prop', () => {
-        const { getByTestId } = render(Text, {
+    test('Step with link prop', () => {
+        const href = 'https://github.com/titans-inc/sveltemantic'
+        const { getByTestId } = render(Step, {
             props: propsWithTestId({
-                color: 'red'
+                link: href
             })
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('ui', 'red', 'text')
+        expect(getByTestId(testId)).toHaveAttribute('href', href)
+        expect(getByTestId(testId)).toBeInstanceOf(HTMLAnchorElement)
     })
 
-    test('Text with size prop', () => {
-        const { getByTestId } = render(Text, {
+    test('Step with active prop', () => {
+        const { getByTestId } = render(Step, {
             props: propsWithTestId({
-                size: 'huge'
+                active: true
             })
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('ui', 'huge', 'text')
+        expect(getByTestId(testId)).toHaveClass('step', 'active')
     })
 
-    test('Text with inverted prop', () => {
-        const { getByTestId } = render(Text, {
+    test('Step with completed prop', () => {
+        const { getByTestId } = render(Step, {
             props: propsWithTestId({
-                inverted: true
+                completed: true
             })
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('ui', 'inverted', 'text')
+        expect(getByTestId(testId)).toHaveClass('step', 'completed')
     })
 
-    test('Text with disabled prop', () => {
-        const { getByTestId } = render(Text, {
+    test('Step with disabled prop', () => {
+        const { getByTestId } = render(Step, {
             props: propsWithTestId({
                 disabled: true
             })
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('ui', 'disabled', 'text')
+        expect(getByTestId(testId)).toHaveClass('step', 'disabled')
     })
 
-    test('Text with additional classes', () => {
-        const { getByTestId } = render(Text, {
+    test('Step with additional classes', () => {
+        const { getByTestId } = render(Step, {
             props: propsWithTestId({
                 class: 'text-lato text-compact'
             })
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('ui', 'text-lato', 'text-compact', 'text')
+        expect(getByTestId(testId)).toHaveClass('step', 'text-lato', 'text-compact')
     })
 
-    test('Text with custom actions', () => {
-        const { getByTestId } = render(Text, {
+    test('Step with custom actions', () => {
+        const { getByTestId } = render(Step, {
             props: propsWithTestId({
                 use: [
                     node => node.classList.add('drag-drop-enable'),
@@ -80,19 +83,18 @@ describe('Text.svelte', () => {
         })
 
         expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
-        expect(getByTestId(testId)).toHaveClass('ui', 'drag-drop-enable', 'text')
+        expect(getByTestId(testId)).toHaveClass('step', 'drag-drop-enable')
         expect(getByTestId(testId)).toHaveAttribute('draggable', 'true')
     })
 
-    test('Text with additional attributes', () => {
-        const { getByTestId } = render(Text, { props: propsWithTestId() })
+    test('Step with additional attributes', () => {
+        const { getByTestId } = render(Step, { props: propsWithTestId() })
 
-        expect(ignoreTestId(getByTestId(testId))).toMatchSnapshot()
         expect(getByTestId(testId)).toHaveAttribute('data-testid', testId)
     })
 
-    test('Text with dom events', async () => {
-        const { component, getByTestId } = render(Text, { props: propsWithTestId() })
+    test('Step with dom events', async () => {
+        const { component, getByTestId } = render(Step, { props: propsWithTestId() })
 
         component.$on('click', event => {
             event.target.setAttribute('clicked', true)
@@ -105,20 +107,19 @@ describe('Text.svelte', () => {
         fireEvent.click(getByTestId(testId))
         fireEvent.focus(getByTestId(testId))
 
-        const span = await waitForElement(() => getByTestId(testId))
+        const div = await waitForElement(() => getByTestId(testId))
 
-        expect(ignoreTestId(span)).toMatchSnapshot()
-        expect(span).toHaveAttribute('clicked')
-        expect(span).toHaveAttribute('focused')
+        expect(div).toHaveAttribute('clicked')
+        expect(div).toHaveAttribute('focused')
     })
 
-    test('Text with multiple props and events snapshot', async () => {
-        const { component, getByTestId } = render(Text, {
+    test('Step with multiple props and events snapshot', async () => {
+        const { component, getByTestId } = render(Step, {
             props: propsWithTestId({
                 class: 'extra',
-                color: 'purple',
+                completed: true,
                 disabled: true,
-                inverted: true,
+                link: 'https://github.com/titans-inc/sveltemantic',
                 use: [
                     node => node.classList.add('drag-drop-enable'),
                     node => node.setAttribute('draggable', 'true')
@@ -137,8 +138,8 @@ describe('Text.svelte', () => {
         fireEvent.click(getByTestId(testId))
         fireEvent.focus(getByTestId(testId))
 
-        const span = await waitForElement(() => getByTestId(testId))
+        const div = await waitForElement(() => getByTestId(testId))
 
-        expect(ignoreTestId(span)).toMatchSnapshot()
+        expect(ignoreTestId(div)).toMatchSnapshot()
     })
 })

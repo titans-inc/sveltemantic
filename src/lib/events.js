@@ -1,6 +1,8 @@
+// https://github.com/hperrin/svelte-material-ui/
+
 import { bubble, listen } from 'svelte/internal'
 
-export function forwardEventsBuilder (component, additionalEvents = []) {
+export function eventsBuilder (component, additionalEvents = []) {
     const events = [
         'focus', 'blur',
         'fullscreenchange', 'fullscreenerror', 'scroll',

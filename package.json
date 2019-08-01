@@ -21,14 +21,15 @@
     "build": "rollup -c",
     "build:doc": "rollup -c --environment BUILD:docs",
     "build:sveltemantic": "rollup -c --environment BUILD:package",
-    "watch": "rollup -c -w",
-    "watch:doc": "rollup -c -w --environment BUILD:docs",
-    "watch:sveltemantic": "rollup -c -w --environment BUILD:package",
+    "lint-md": "remark .",
     "prepublishOnly": "run-s build:doc build:sveltemantic",
     "postpublish": "rimraf behaviors collections elements modules views index.js index.mjs",
     "test": "run-s test:snapshot test:coverage",
     "test:snapshot": "jest -u",
-    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
+    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
+    "watch": "rollup -c -w",
+    "watch:doc": "rollup -c -w --environment BUILD:docs",
+    "watch:sveltemantic": "rollup -c -w --environment BUILD:package"
   },
   "repository": {
     "type": "git",
@@ -40,8 +41,13 @@
     "url": "https://github.com/titans-inc/sveltemantic/issues"
   },
   "homepage": "https://github.com/titans-inc/sveltemantic#readme",
+  "remarkConfig": {
+    "plugins": ["remark-preset-lint-recommended"]
+  },
   "dependencies": {
     "clsx": "^1.0.4",
+    "remark-cli": "^7.0.0",
+    "remark-preset-lint-recommended": "^3.0.3",
     "svelte": "^3.6.9"
   },
   "devDependencies": {

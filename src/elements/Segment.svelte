@@ -1,5 +1,44 @@
+<div 
+    use:actions={use}
+    use:events
+    class="{clsxd(
+        'ui',
+        [alignment, { 'aligned': alignment && alignment !== 'justified' }],
+        [attached, { 'attached': attached }],
+        basic && 'basic',
+        circular && 'circular',
+        clearing && 'clearing',
+        color,
+        compact && 'compact',
+        disabled && 'disabled',
+        emphasis,
+        [fitted, { 'fitted': fitted }],
+        [float, { 'floated': float }],
+        inverted && 'inverted',
+        [loading, { 'loading': loading }],
+        [padded, { 'padded': padded }],
+        piled && 'piled',
+        placeholder && 'placeholder',
+        raised && 'raised',
+        stacked && 'stacked',
+        vertical && 'vertical',
+        className,
+        'segment'
+    )}"
+    {...exclude($$props, ['use', 'class', 'inverted', 'disabled', 'size', 'color'])}
+><slot></slot></div>
+
+<script context="module">
+    import { exclude, eventsBuilder, actions, clsxd } from '../lib'
+    import { current_component } from 'svelte/internal'
+</script>
+
 <script>
-    import { smfloated, smaligned } from './lib/util';
+    const events = eventsBuilder(current_component)
+
+    export let use = [];
+    let className = '';
+    export { className as class };
 
     export let color = '';
     export let loading = '';
@@ -20,13 +59,4 @@
     export let compact = false;
     export let circular = false;
     export let clearing = false;
-
-    $: floated = smfloated(float)
-    $: aligned = smaligned(alignment)
 </script>
-
-<div class="ui {loading} {color} {attached} {emphasis} {padded} {fitted} {floated} {aligned} segment" class:placeholder 
-class:raised class:stacked class:piled class:vertical class:disabled class:loading class:inverted class:attached 
-class:padded class:fitted class:compact class:circular class:clearing class:basic>
-    <slot></slot>
-</div>

@@ -1,25 +1,29 @@
+<i
+    use:actions={use}
+    use:events
+    class="{clsxd(
+        code,
+        name,
+        alias,
+        className,
+        'flag'
+    )}"
+    {...exclude($$props, ['use', 'class', 'code', 'name', 'alias'])}
+></i>
+
+<script context="module">
+    import { exclude, eventsBuilder, actions, clsxd } from '../lib'
+    import { current_component } from 'svelte/internal'
+</script>
+
 <script>
+    const events = eventsBuilder(current_component)
+
+    export let use = [];
+    let className = '';
+    export { className as class };
+
     export let code = '';
     export let name = '';
     export let alias = '';
-
-    function normalizedFlag() {
-        if (code && code.length === 2) {
-            return code;
-        } else if (name) {
-            return name.toLowerCase().replace('.', '');
-        } else if (alias) {
-            return alias.toLowerCase();
-        } else {
-            return 'error';
-        }
-    }
 </script>
-
-<style>
-    i.flag.error:not(.icon)::before {
-        content: '\f0000';
-    }
-</style>
-
-<i class="{normalizedFlag()} flag"></i>

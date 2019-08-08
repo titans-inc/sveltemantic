@@ -1,1 +1,3 @@
-<div class="paragraph"><slot></slot></div>
+<div
+    class="paragraph"
+><slot></slot></div>

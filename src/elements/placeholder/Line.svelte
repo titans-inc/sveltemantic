@@ -1,4 +1,6 @@
-<div class="{size} line"></div>
+<div
+    class="{size} line"
+></div>
 
 <script>
     export let size = ''

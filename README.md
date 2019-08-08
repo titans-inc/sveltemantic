@@ -25,21 +25,20 @@ If the docs are showing 404, it's just that they are still under contruction (ak
 
 ## Progress List
 ### Elements
--   [x] Buttons
+-   [ ] Buttons
 -   [x] Container
--   [x] Divider (No Header support)
+-   [ ] Divider (No Header support)
 -   [x] Flag
--   [x] Group (Supports grouping for Label, Button, Icon, Segment | **No Step support yet**)
--   [x] Header
+-   [ ] Header
 -   [x] Icon
--   [x] Image
--   [x] Input
+-   [ ] Image
+-   [ ] Input
 -   [ ] Label
 -   [ ] List
--   [x] Loader
--   [x] Placeholder
--   [x] Rail
--   [x] Reveal
+-   [ ] Loader
+-   [ ] Placeholder
+-   [ ] Rail
+-   [ ] Reveal
 -   [x] Segment
 -   [x] Step
 -   [x] Text

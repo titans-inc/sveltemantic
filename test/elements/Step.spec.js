@@ -1,5 +1,5 @@
 import { render, cleanup, fireEvent, waitForElement } from '@testing-library/svelte'
-import Step from '../../src/elements/Step.svelte'
+import Step from '../../src/elements/step'
 
 beforeEach(() => {
     testId = id('step')

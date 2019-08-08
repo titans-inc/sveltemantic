@@ -1,5 +1,5 @@
 import { render, cleanup, fireEvent, waitForElement } from '@testing-library/svelte'
-import Text from '../../src/elements/Text.svelte'
+import Text from '../../src/elements/text'
 
 beforeEach(() => {
     testId = id('text')

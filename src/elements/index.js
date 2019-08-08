@@ -1,17 +1,44 @@
-export { default as Button } from './Button.svelte'
-export { default as Container } from './Container.svelte'
-export { default as Divider } from './Divider.svelte'
-export { default as Flag } from './Flag.svelte'
-export { default as Group } from './Group.svelte'
-export { default as Header } from './Header.svelte'
-export { default as Icon } from './Icon.svelte'
-export { default as Image } from './Image.svelte'
-export { default as Input } from './Input.svelte'
-export { default as Loader } from './Loader.svelte'
-export { default as Placeholder } from './Placeholder.svelte'
-export { default as Rail } from './Rail.svelte'
-export { default as Reveal } from './Reveal.svelte'
-export { default as Segment } from './Segment.svelte'
-export { default as Step } from './Step.svelte'
-export { default as Text } from './Text.svelte'
-export { default as Wrapper } from './Wrapper.svelte'
+import * as Button from './button/index.svelte'
+export { Button }
+
+import * as Container from './container/index.svelte'
+export { Container }
+
+import * as Divider from './divider/index.svelte'
+export { Divider }
+
+import * as Flag from './flag/index.svelte'
+export { Flag }
+
+import * as Header from './header/index.svelte'
+export { Header }
+
+import * as Icon from './icon/index.svelte'
+export { Icon }
+
+import * as Image from './image/index.svelte'
+export { Image }
+
+import * as Input from './input/index.svelte'
+export { Input }
+
+import * as Loader from './loader/index.svelte'
+export { Loader }
+
+import * as Placeholder from './placeholder/index.svelte'
+export { Placeholder }
+
+import * as Rail from './rail/index.svelte'
+export { Rail }
+
+import * as Reveal from './reveal/index.svelte'
+export { Reveal }
+
+import * as Segment from './segment/index.svelte'
+export { Segment }
+
+import * as Step from './step/index.svelte'
+export { Step }
+
+import * as Text from './text/index.svelte'
+export { Text }

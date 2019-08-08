@@ -33,7 +33,7 @@
 
 <script>
     import { listen } from 'svelte/internal';
-    import { smfloated, smlabeled } from './lib/util';
+    import { smfloated, smlabeled } from '../../lib/util';
 
     import Icon from './Icon.svelte';
 

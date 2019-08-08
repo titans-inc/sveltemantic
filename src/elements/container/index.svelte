@@ -13,7 +13,7 @@
 ><slot>No content is provided</slot></div>
 
 <script context="module">
-    import { exclude, eventsBuilder, actions, clsxd } from '../lib'
+    import { exclude, eventsBuilder, actions, clsxd } from '../../lib'
     import { current_component } from 'svelte/internal'
 </script>
 

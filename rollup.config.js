@@ -17,7 +17,7 @@ const tasks = []
 if (!build || build === 'package') {
     tasks.push({
         external,
-        input: 'src/index.js',
+        input: 'src/injex.js',
         output: [
             {
                 file: 'index.mjs',

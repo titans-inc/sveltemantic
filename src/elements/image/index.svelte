@@ -1,5 +1,5 @@
 <script>
-    import { smfloated } from '../../lib/util';
+    import { smfloated } from '../../lib/elements/util';
 
     export let size = '';
     export let src = '';

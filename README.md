@@ -27,7 +27,7 @@ If the docs are showing 404, it's just that they are still under contruction (ak
 ### Elements
 -   [ ] Buttons
 -   [x] Container
--   [ ] Divider (No Header support)
+-   [ ] Divider
 -   [x] Flag
 -   [ ] Header
 -   [x] Icon

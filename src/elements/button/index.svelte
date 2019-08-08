@@ -33,9 +33,9 @@
 
 <script>
     import { listen } from 'svelte/internal';
-    import { smfloated, smlabeled } from '../../lib/util';
+    import { smfloated, smlabeled } from '../../lib/elements/util';
 
-    import Icon from './Icon.svelte';
+    import Icon from '../icon/index.svelte';
 
     export let active = false;
     export let emphasis = '';

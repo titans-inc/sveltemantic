@@ -1,5 +1,5 @@
 <script>
-    import { smiconed, smlabeled, smactioned } from './lib/util';
+    import { smiconed, smlabeled, smactioned } from '../../lib/elements/util';
 
     export let icon = '';
     export let loading = '';

@@ -1,5 +1,5 @@
 <script>
-    import { smaligned } from '../../lib/util';
+    import { smaligned } from '../../lib/elements/util';
 
     export let page = '';
     export let attached = '';

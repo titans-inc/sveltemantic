@@ -11,11 +11,11 @@
     </h4>
     {/if}
 
-    <i class="fitted icon code"></i>
+    <i class="fitted icon code" on:click={showExample}></i>
     <p>{description}</p>
     <div class="html {show ? 'ui top attached segment' : ''}">
-        {@html html}
-        <div class="ui top attached label">Example <i class="copy link icon" on:click={showExample}></i></div>
+        <slot></slot>
+        <div class="ui top attached label">Example <i class="copy link icon"></i></div>
     </div>
     <div class="annotation transition" class:hidden={!show} class:visible={show}>
         <div class="ui instructive bottom attached segment">
@@ -42,7 +42,7 @@
     let show = false
 
     function showExample() {
-        show = true
+        show = !show
     }
 
     $: anchor = title.toLowerCase().replace(/[\s]+/, '-')

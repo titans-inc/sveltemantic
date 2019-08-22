@@ -31,9 +31,9 @@
 <script context="module">
     import { exclude, eventsBuilder, actions, clsxd } from '../../lib'
     import { current_component } from 'svelte/internal'
-    import Group from './Group.svelte'
+    import SegmentGroup from './SegmentGroup.svelte'
 
-    export { Group }
+    export { SegmentGroup }
 </script>
 
 <script>

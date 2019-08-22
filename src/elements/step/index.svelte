@@ -18,12 +18,12 @@
 <script context="module">
     import { exclude, eventsBuilder, actions, clsxd } from '../../lib'
     import { current_component } from 'svelte/internal'
-    import Group from './Group.svelte'
-    import Content from './Content.svelte'
-    import Title from './Title.svelte'
-    import Description from './Description.svelte'
+    import StepGroup from './StepGroup.svelte'
+    import StepContent from './StepContent.svelte'
+    import StepTitle from './StepTitle.svelte'
+    import StepDescription from './StepDescription.svelte'
 
-    export { Group, Content, Title, Description }
+    export { StepGroup, StepContent, StepTitle, StepDescription }
 </script>
 
 <script>

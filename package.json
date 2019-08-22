@@ -1,6 +1,6 @@
 {
   "name": "sveltemantic",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.1-alpha.1",
   "description": "Fomantic-UI components for Svelte 3",
   "main": "index.js",
   "module": "index.mjs",
@@ -11,6 +11,7 @@
     "elements",
     "modules",
     "views",
+    "lib",
     "README.md",
     "LICENSE"
   ],

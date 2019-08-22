@@ -1,10 +1,15 @@
 <script>
-    import { Container, Segment, Header, Divider, Placeholder } from 'sveltemantic/elements';
+    import Container from 'sveltemantic/elements/container'
+    import Segment from 'sveltemantic/elements/segment'
+    import Header from 'sveltemantic/elements/header'
+    import Divider from 'sveltemantic/elements/divider'
+    import Placeholder from 'sveltemantic/elements/placeholder'
+    
 
     export let status;
     export let error;
 
-    const dev = process.env.NODE_ENV === 'development';
+    const dev = process.env.NODE_ENV === 'development'
 </script>
 
 <svelte:head>

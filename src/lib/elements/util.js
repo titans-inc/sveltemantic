@@ -22,3 +22,7 @@ export function smactioned (action) {
 export function smaligned (alignment) {
     return ['left', 'center', 'right'].indexOf(alignment) !== -1 ? `${alignment} aligned` : alignment
 }
+
+export function smattached (attach) {
+    return smdirectional(attach, 'attached')
+}

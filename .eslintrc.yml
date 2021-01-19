@@ -1,0 +1,21 @@
+root: true
+env:
+  browser: true
+  es6: true
+parser: "@typescript-eslint/parser"
+parserOptions:
+  tsconfigRootDir: __dirname,
+  project:
+    - "./tsconfig.json"
+plugins:
+  - "@typescript-eslint"
+  - "svelte3"
+extends:
+  - "plugin:@typescript-eslint/recommended"
+  - "eslint:recommended"
+  - "prettier"
+  - "prettier/@typescript-eslint"
+overrides:
+  - files:
+      - "**/*.svelte"
+    processor: "svelte3/svelte3"

@@ -1,8 +1,0 @@
-{
-    "threshold": 5,
-    "reporters": ["html", "console", "badge"],
-    "ignore": ["**/__snapshots__/**", "**/node_modules/**", "**/coverage/**", "**/docs/**", "**/report/**"],
-    "absolute": true,
-    "blame": true,
-    "mode": "strict"
-}
